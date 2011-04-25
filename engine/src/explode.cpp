@@ -281,7 +281,7 @@ void DoExplosion()
             b = BoomBuf + i;            
             if (b->time == time) {
                 DrawSprite(b->x, b->y, b->sprite);
-                if (b->sound != NULL) PlaySample(b->sound, 100+time, EffectsVolume, GetFieldPanning(b->fx, b->fy));
+                if (b->sound != 0) PlaySample(b->sound, 100+time, EffectsVolume, GetFieldPanning(b->fx, b->fy));
 
                 // kratery + odstraneni jednotek znicenych:
                 {

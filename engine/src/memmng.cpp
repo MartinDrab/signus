@@ -40,7 +40,7 @@
 
 // Fce pro nacteni pole z .DAT a jeho uvolneni z pameti:
 
-void LoadArray(void *array[], int count, TDataFile *df, char *index, byte mask[])
+void LoadArray(void *array[], int count, TDataFile *df, const char *index, byte mask[])
 {
 	char nm[32];
 

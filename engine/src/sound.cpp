@@ -139,7 +139,7 @@ void SetVolume(int effects, int speech, int music)
 
 static int MusicJustStarted = FALSE;
 
-int PlayMusic(char *name)
+int PlayMusic(const char *name)
 {
     char filnm[0124];
     FILE *f;
@@ -221,7 +221,7 @@ typedef struct {
 static TSampleRecord Samples[MAX_SAMPLES];
 
 
-struct {
+struct PSmp {
     int                   priority;
     int                   volume;
     MIDASsamplePlayHandle handle;
@@ -253,7 +253,7 @@ inline int SmpIsPlaying(MIDASsamplePlayHandle x)
 
 
 
-MIDASsample LoadSample(char *name, int loop)
+MIDASsample LoadSample(const char *name, int loop)
 {
     int i, pos;
 
@@ -416,7 +416,7 @@ void PanSample(MIDASsamplePlayHandle sample, int panning)
 
 static char old_speech[400] = "???";
 
-void SaySpeech(char *name, int priority)
+void SaySpeech(const char *name, int priority)
 {
     if (MIDAS_disabled) return;
 

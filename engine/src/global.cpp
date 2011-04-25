@@ -110,7 +110,7 @@ bool dirExists(const char *filename)
 
 static const char *GetConfigFileName()
 {
-    char *home = getenv("HOME");
+    const char *home = getenv("HOME");
     if (!home) home = ".";
 
     static char inifile[1024] = "";
@@ -130,7 +130,7 @@ bool LoadINI()
     
     const char *configname = GetConfigFileName();
     if (fileExists(configname))
-        dict = iniparser_load((char*)configname);
+        dict = iniparser_load(configname);
     if (dict == NULL)
         dict = iniparser_load(SIGNUS_DATA_DIR "/default_signus.ini");
     if (dict == NULL)
@@ -260,7 +260,7 @@ int RollDice()
 {
     double r;
     
-    r = double ((rand () + 1)) / (RAND_MAX + 1);
+    r = double ((rand () + 1.0)) / (RAND_MAX + 1.0);
     r = log (r) / log (CRollDice);
     return int (-r);
 
@@ -270,7 +270,7 @@ int RollDice()
 
 // Zkontroluje pritomnost souboru:
 
-int CheckFile(char *name)
+int CheckFile(const char *name)
 {
     FILE *f = fopensafe(name, "rb");
     
@@ -303,7 +303,7 @@ int DoMemoryCheck()
 int InitGlobal()
 {
 #ifdef DEBUG
-    dbgOutput = fopen("debug.nfo", "wt");
+    dbgOutput = fopen("/tmp/debug.nfo", "wt");
     {   
         TDPMIInfo i;
         
@@ -339,8 +339,7 @@ int InitGlobal()
     TinyFont = TTF_OpenFont(fontfileTiny, 10);
     TTF_SetFontStyle(TinyFont, TTF_STYLE_NORMAL);
     
-    rt = (int)NormalFont & (int)NormalFont & (int)TinyFont;
-    if (rt == 0) return 0;
+    if ( !NormalFont || !HugeFont || !TinyFont ) { return 0; }
     
     MessageBuf = memalloc(MSGBUF_SX * MSGBUF_SY);
     lockmem(MessageBuf, MSGBUF_SX * MSGBUF_SY);
@@ -460,14 +459,14 @@ const char *getSignusDataDir()
 
 const char *getSignusConfigDir()
 {
-    char *home = getenv("HOME");
+    const char *home = getenv("HOME");
     if (!home) home = ".";
 
     static char inidir[1024] = "";
     
     if (*inidir == 0)
     {
-        char *home = getenv("HOME");
+        const char *home = getenv("HOME");
         if (!home) home = ".";
         strncpy(inidir, home, 1024);
         strncat(inidir, "/.signus", 1024);
@@ -636,7 +635,7 @@ void ProgressSet(int value)
 void *MessageBuf;
 
 
-void Message(char *msg)
+void Message(const char *msg)
 {
     if (*msg == 0) {
         memcpy(MessageBuf, MessageFrames[2], MSGBUF_SX * MSGBUF_SY);

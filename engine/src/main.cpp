@@ -138,7 +138,7 @@ int main(int argc, char *argv[])
 #endif
 
     if (!InitGlobal()) return FALSE;
-    
+
     if (!doInit()) return FALSE;
 
     signus_thread_is_running = TRUE;

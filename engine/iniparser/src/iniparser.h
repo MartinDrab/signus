@@ -87,7 +87,7 @@ void iniparser_dump_lua(dictionary * d, FILE * f);
  */
 /*--------------------------------------------------------------------------*/
             
-char * iniparser_getstr(dictionary * d, char * key);
+char * iniparser_getstr(dictionary * d, const char * key);
 
 
 /*-------------------------------------------------------------------------*/
@@ -106,7 +106,7 @@ char * iniparser_getstr(dictionary * d, char * key);
  */
 /*--------------------------------------------------------------------------*/  
 
-int iniparser_getint(dictionary * d, char * key, int notfound);
+int iniparser_getint(dictionary * d, const char * key, int notfound);
 
 
 /*-------------------------------------------------------------------------*/
@@ -125,7 +125,7 @@ int iniparser_getint(dictionary * d, char * key, int notfound);
  */
 /*--------------------------------------------------------------------------*/  
 
-double iniparser_getdouble(dictionary * d, char * key, double notfound);
+double iniparser_getdouble(dictionary * d, const char * key, double notfound);
 
 
 /*-------------------------------------------------------------------------*/
@@ -166,7 +166,7 @@ double iniparser_getdouble(dictionary * d, char * key, double notfound);
  */
 /*--------------------------------------------------------------------------*/  
 
-int iniparser_getboolean(dictionary * d, char * key, int notfound);
+int iniparser_getboolean(dictionary * d, const char * key, int notfound);
 
 
 /*-------------------------------------------------------------------------*/
@@ -222,7 +222,7 @@ int iniparser_find_entry(dictionary * ini, char * entry) ;
 /*--------------------------------------------------------------------------*/  
 
 
-dictionary * iniparser_load(char * ininame);
+dictionary * iniparser_load(const char * ininame);
 
 
 /*-------------------------------------------------------------------------*/

@@ -83,7 +83,7 @@ int DoneInteract()
 ///////////////////////////// IKONA //////////////////////////////////
 
 
-TIcon::TIcon(int ax, int ay, int aw, int ah, char *iconid, char sh)
+TIcon::TIcon(int ax, int ay, int aw, int ah, const char *iconid, char sh)
 {   
     x = ax, y = ay, w = aw, h = ah;
     Shortcut = sh;
@@ -194,9 +194,9 @@ int TIconPanel::Handle(TEvent *e)
         if (e->Key.KeyCode == SHORTCUT_RESERVE2) return 10;
         if (e->Key.KeyCode == SHORTCUT_RESERVE3) return 2;
         switch (e->Key.CharCode) {
-            case SHORTCUT_NEXTUNIT : case SHORTCUT_NEXTUNIT+32 : return 1;
-            case SHORTCUT_ENDTURN : case SHORTCUT_ENDTURN+32 : return 3;
-            case SHORTCUT_CENTER : case SHORTCUT_CENTER+32 : return 4;
+            case SHORTCUT_NEXTUNIT : return 1;
+            case SHORTCUT_ENDTURN : return 3;
+            case SHORTCUT_CENTER : return 4;
         }
     }
     return 0;
@@ -439,7 +439,7 @@ void *DrwViewBf;
 int DrwViewBfSz;
 char DLG_backimg[9];
     
-TDialog::TDialog(int ax, int ay, int aw, int ah, char *backimg)
+TDialog::TDialog(int ax, int ay, int aw, int ah, const char *backimg)
 {
     x = ax, y = ay;
     w = (aw / 4) * 4, h = (ah / 4) * 4;
@@ -710,7 +710,7 @@ void TStaticText::Draw()
 ////////////////////// TStaticText2:
 
 
-TStaticText2::TStaticText2(int ax, int ay, int aw, int ah, char *aTxt)
+TStaticText2::TStaticText2(int ax, int ay, int aw, int ah, const char *aTxt)
              : TStaticText(ax, ay, aw, ah, aTxt) 
 {
     Text = aTxt; BigFnt = FALSE; 
@@ -719,7 +719,7 @@ TStaticText2::TStaticText2(int ax, int ay, int aw, int ah, char *aTxt)
     
     char *Character;
     char *Word;
-    char *Brief;
+    const char *Brief;
     
     Brief = Text; // !!!!!!!!!!!!!!!
 
@@ -1399,7 +1399,7 @@ int PromtBox(char *text, int buttons)
 
 
 
-int InputBox(char *promt, char *buf, int maxchars)
+int InputBox(const char *promt, char *buf, int maxchars)
 {
     TDialog *dlg;
     int rt;

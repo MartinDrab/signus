@@ -48,7 +48,7 @@ class TIcon {
             int x, y, w, h;
             char Shortcut;
         
-            TIcon(int ax, int ay, int aw, int ah, char *iconid, char sh = 0);
+            TIcon(int ax, int ay, int aw, int ah, const char *iconid, char sh = 0);
             void Draw(int isdown = FALSE);
             int Handle(TEvent *e);
             ~TIcon() {DisposeArray(IconPic, 2);};
@@ -139,7 +139,7 @@ class TDialog {
             TView *Subviews[MAX_DLGVIEWS];
             int SubviewsCnt;
             
-            TDialog(int ax, int ay, int aw, int ah, char *backimg);
+            TDialog(int ax, int ay, int aw, int ah, const char *backimg);
             void PaintRect(int ay, int ah);
                     // kresli cast dialogu na obrazovku - volit. meze y1, y2
             void Draw();
@@ -184,10 +184,10 @@ class TButton : public TView {
 // Text:
 class TStaticText : public TView {
         public:
-            char *Text;                   // vlastni text
+            const char *Text;                   // vlastni text
             int BigFnt;                   // pouz. font Huge ?
             
-            TStaticText(int ax, int ay, int aw, int ah, char *aTxt, int aBigFnt = FALSE) 
+            TStaticText(int ax, int ay, int aw, int ah, const char *aTxt, int aBigFnt = FALSE) 
               : TView(ax, ay, aw, ah) {Text = aTxt; BigFnt = aBigFnt;};
             void Draw();
     };
@@ -209,7 +209,7 @@ class TStaticText2 : public TStaticText {
       int WordsTypes[MaxNumOfWords]; // 1: Prvni slovo v odstavci
       
         public:
-            TStaticText2(int ax, int ay, int aw, int ah, char *aTxt);
+            TStaticText2(int ax, int ay, int aw, int ah, const char *aTxt);
 //           : TStaticText(int ax, int ay, int aw, int ah, char *aTxt, int aBigFnt = FALSE) {};
             virtual void Draw();
     };
@@ -349,7 +349,7 @@ extern int PromtBox(char *text, int buttons);
             // cmYes | cmNo | cmAlways
             // cmOk
             
-extern int InputBox(char *promt, char *buf, int maxchars);
+extern int InputBox(const char *promt, char *buf, int maxchars);
             // nabidne vlozit text a pod nim tlacika OK a Cancel
 
 

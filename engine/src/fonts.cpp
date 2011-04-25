@@ -30,7 +30,7 @@
 #include "fonts.h"
 
 void PutStr(void *tar, int tarwidth, int xpoz, int ypoz,
-            char *s, TFont *f, byte clr1, byte clr2)
+            const char *s, TFont *f, byte clr1, byte clr2)
 {
     if (s == NULL || *s == 0)
         return;

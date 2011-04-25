@@ -71,7 +71,7 @@ void *StdDataRead(FILE *f)
 
 
 
-TDataFile::TDataFile(char *name, int flags, char *aprefix, char areplac,
+TDataFile::TDataFile(const char *name, int flags, char *aprefix, char areplac,
 			               TDataWriteFce wfce, TDataReadFce rfce)
 {
 	writefce = wfce;
@@ -165,7 +165,7 @@ int TDataFile::lookfor(char *name, int lo, int hi)
 
 
 
-void *TDataFile::get(char *name)
+void *TDataFile::get(const char *name)
 {
 	void *ptr = NULL;
 	char nm[9];

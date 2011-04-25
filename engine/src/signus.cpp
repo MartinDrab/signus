@@ -771,7 +771,7 @@ void HandleEvent(TEvent *e)
         
             default :
                 switch (e->Key.CharCode) {
-                    case SHORTCUT_STATUSBAR : case SHORTCUT_STATUSBAR+32 :
+                    case SHORTCUT_STATUSBAR :
                         iniShowStatusbar = !iniShowStatusbar;
                         RedrawMap();
                         break;
@@ -790,7 +790,7 @@ void HandleEvent(TEvent *e)
                         if (!SetUnitCursor(uatOccupy)) if (!SetUnitCursor(uatLoadIn)) 
                         SetUnitCursor(uatSupport);
                         break;
-                    case SHORTCUT_NEXTUNIT2 : case SHORTCUT_NEXTUNIT2+32 : 
+                    case SHORTCUT_NEXTUNIT2 : 
                         SelectNextUnit(TRUE);
                         break;
                 }

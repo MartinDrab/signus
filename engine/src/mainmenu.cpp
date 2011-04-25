@@ -92,7 +92,7 @@ static void Flash()
 }
 
 
-static int ProcessMenu(char *mask1, char *mask2)
+static int ProcessMenu(const char *mask1, const char *mask2)
 {
     void *bg = GraphicsDF->get("mmnulogo");
     byte *pt1 = (byte*) GraphicsI18nDF->get(mask1);
