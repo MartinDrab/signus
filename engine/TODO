@@ -1,0 +1,12 @@
+
+- prasi se mysi kurzor u okraju
+- PutStr neumi zpracovat viceradkovy text
+- zkonvertovat texty do utf-8, odstranit ty divny dvojznaky z briefingu
+- odstranit x86 asembler, nahradit C kodem ktery funguje vsude
+- nefunguje nacitaci obrazovka
+- zprovoznit prepinani jazyku
+- napsat manual a README
+- predelat intro obrazovku mise tak, aby v ni sla prehravat animacka??
+  (pripadne jednotny vzhled s briefingovou?)
+- odstranit warningy a FIXME ve zdrojacich
+- prehravani animacek AVI 
